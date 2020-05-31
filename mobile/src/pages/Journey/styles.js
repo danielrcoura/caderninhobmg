@@ -25,7 +25,7 @@ export const JourneymanText = styled.Text`
 export const JourneymanSubText = styled.Text`
   color: #fff;
   font-size: 20px;
-  font-family: 'Montserrat-Bold';
+  font-family: 'Roboto';
   margin: 5px 0;
 `;
 

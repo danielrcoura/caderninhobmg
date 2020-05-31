@@ -6,7 +6,7 @@ export const ItemsListArea = styled.ScrollView`
 `;
 export const ItemTitle = styled.Text`
   color: #f47a20;
-  font-family: 'Montserrat-Medium';
+  font-family: 'Roboto';
   font-size: 18px;
   text-align: center;
   margin-top: 20px;
@@ -24,7 +24,7 @@ export const ChartContainer = styled.View`
 `;
 export const ChartText = styled.Text`
   font-size: 20px;
-  font-family: 'Montserrat-Bold';
+  font-family: 'Roboto';
   text-align: center;
   color: #f47a20;
 `;
@@ -57,12 +57,12 @@ export const LegendItemColor = styled.View`
 export const LegendItemDesc = styled.Text`
   margin-left: 13px;
   font-size: 16px;
-  font-family: 'Montserrat-Medium';
+  font-family: 'Roboto';
   color: #fff;
 `;
 export const LegendItemValue = styled.Text`
   font-size: 16px;
-  font-family: 'Montserrat-Bold';
+  font-family: 'Roboto';
   color: #fff;
   margin-left: auto;
 `;
@@ -71,13 +71,13 @@ export const TextAproximation = styled.Text`
   font-size: 16px;
   text-align: center;
   color: #f47a20;
-  font-family: 'Montserrat-Medium';
+  font-family: 'Roboto';
 `;
 export const TextAproximationValue = styled.Text`
   margin: 15px auto;
   color: #f47a20;
   font-size: 20px;
-  font-family: 'Montserrat-Bold';
+  font-family: 'Roboto';
 `;
 
 export const Container = styled.View`

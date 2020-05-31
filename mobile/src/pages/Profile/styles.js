@@ -27,7 +27,7 @@ export const CostSplit = styled.View`
 `;
 export const ItemTitle = styled.Text`
   color: #f47a20;
-  font-family: 'Montserrat-Medium';
+  font-family: 'Roboto';
   font-size: 18px;
   text-align: center;
   margin-top: 20px;
@@ -41,7 +41,8 @@ export const LegendItem = styled.View`
   flex-direction: row;
   align-items: center;
   margin-bottom: 7px;
-  background: #f47a20;
+  background: #fff;
+  elevation: 10;
   padding: 7px 10px;
   border-radius: 5px;
 `;
@@ -54,12 +55,12 @@ export const LegendItemColor = styled.View`
 export const LegendItemDesc = styled.Text`
   margin-left: 13px;
   font-size: 16px;
-  font-family: 'Montserrat-Medium';
-  color: #fff;
+  font-family: 'Roboto';
+  color: #1a1a1a;
 `;
 export const LegendItemValue = styled.Text`
   font-size: 16px;
-  font-family: 'Montserrat-Bold';
+  font-family: 'Roboto';
   color: #fff;
   margin-left: auto;
 `;
@@ -68,7 +69,7 @@ export const ChartContainer = styled.View`
 `;
 export const ChartText = styled.Text`
   font-size: 16px;
-  font-family: 'Montserrat-Medium';
+  font-family: 'Roboto';
   text-align: center;
   color: #f47a20;
 `;
@@ -99,12 +100,12 @@ export const CostListItem = styled.View`
 `;
 export const CostListItemDesc = styled.Text`
   color: #fcdfca;
-  font-family: 'Montserrat-Medium';
+  font-family: 'Roboto';
   font-size: 14px;
 `;
 export const CostListItemValue = styled.Text`
   color: #fff;
-  font-family: 'Montserrat-Bold';
+  font-family: 'Roboto';
   font-size: 14px;
 `;
 export const CostListContent = styled.View`
@@ -124,7 +125,7 @@ export const BtnEdit = styled.TouchableOpacity`
 `;
 export const BtnText = styled.Text`
   color: #fff;
-  font-family: 'Montserrat-Bold';
+  font-family: 'Roboto';
   font-size: 14px;
   letter-spacing: 3px;
 `;

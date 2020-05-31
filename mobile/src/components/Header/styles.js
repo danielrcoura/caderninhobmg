@@ -18,7 +18,7 @@ export const BackButton = styled.TouchableOpacity`
   margin-left: 10px;
 `;
 export const BackText = styled.Text`
-  font-family: 'Montserrat-Bold';
+  font-family: 'Roboto';
   color: #fff;
 `;
 export const LogoContainer = styled.View`
