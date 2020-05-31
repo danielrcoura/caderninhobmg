@@ -1,18 +1,17 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/AntDesign';
-import {Container, BackButton, BackText, LogoContainer, Logo} from './styles';
-import logo from '../../assets/images/logoHeaderWhite.png';
+import {Container, BackButton, BackText, TitleContainer, PageTitle} from './styles';
 
-const Header = ({ navigator }) => {
+const Header = ({ navigator, pageTitle }) => {
   return (
     <Container>
       <BackButton onPress={() => navigator.goBack()}>
         <Icon name="arrowleft" color="#fff" size={25} />
         <BackText>Voltar</BackText>
       </BackButton>
-      <LogoContainer>
-        <Logo source={logo} />
-      </LogoContainer>
+      <TitleContainer>
+        <PageTitle>{pageTitle}</PageTitle>
+      </TitleContainer>
     </Container>
   );
 };
