@@ -24,7 +24,9 @@ import {
   BtnText,
   ListItensContainer,
 } from './styles';
+
 import Header from '../../components/Header';
+import HelpButton from '../../components/HelpButton'
 
 const dataAPI = {
   user: {
