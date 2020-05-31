@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { useAuth } from '../../hooks/auth';
-import api from '../../services/api';
-import formatValue from '../../utils/formatValue'
+import React, {useState, useEffect} from 'react';
 import {StatusBar} from 'react-native';
 import {PieChart} from 'react-native-svg-charts';
+import {useAuth} from '../../hooks/auth';
+import api from '../../services/api';
 import {
   Container,
   ItemContainer,
@@ -66,8 +65,8 @@ const dataAPI = {
     },
   ],
 };
-const Dashboard = ({ navigation }) => {
-  const { name, token } = useAuth();
+const Dashboard = ({navigation}) => {
+  const {name, token} = useAuth();
 
   const [planExp, setPlanExp] = useState(0);
   const [income, setIncome] = useState(0);
@@ -76,7 +75,7 @@ const Dashboard = ({ navigation }) => {
   async function loadData() {
     const response = await api.get('/journey', {
       headers: {
-        authorization: 'Bearer ' + token,
+        authorization: `Bearer ${token}`,
       },
     });
 

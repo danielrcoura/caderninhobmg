@@ -21,8 +21,7 @@ export default function Routes() {
           gestureEnabled: true,
           ...TransitionPresets.SlideFromRightIOS,
         }}
-        initialRouteName="login">
-
+        initialRouteName="help">
         <Stack.Screen name="login" component={Login} />
         <Stack.Screen name="profile" component={Profile} />
         <Stack.Screen name="help" component={Help} />
