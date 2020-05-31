@@ -22,6 +22,7 @@ import {
 
 import Header from '../../components/HeaderDashboard';
 import HelpButton from '../../components/HelpButton';
+import formatValue from '../../utils/formatValue';
 
 const dataAPI = {
   pieData: [

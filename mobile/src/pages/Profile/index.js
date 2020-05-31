@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { useAuth } from '../../hooks/auth';
-import api from '../../services/api';
-import formatValue from '../../utils/formatValue';
+import React, {useState, useEffect} from 'react';
 import {StatusBar} from 'react-native';
 import {PieChart} from 'react-native-svg-charts';
+import {useAuth} from '../../hooks/auth';
+import api from '../../services/api';
+import formatValue from '../../utils/formatValue';
 import {
   Container,
   Title,
@@ -29,7 +29,7 @@ import {
 } from './styles';
 
 import Header from '../../components/Header';
-import HelpButton from '../../components/HelpButton'
+import HelpButton from '../../components/HelpButton';
 
 const dataAPI = {
   user: {
@@ -88,31 +88,31 @@ const dataAPI = {
 };
 
 const Profile = ({navigation}) => {
-  const { name, token } = useAuth();
+  const {name, token} = useAuth();
 
   const [expenses, setExpenses] = useState([]);
   const [journey, setJourney] = useState({});
 
   async function loadData() {
-    const expenses = await api.get('/expenses', {
+    const expensesResponse = await api.get('/expenses', {
       headers: {
-        authorization: 'Bearer ' + token,
+        authorization: `Bearer ${token}`,
       },
     });
 
-    const journey = await api.get('/journey', {
+    const journeyResponse = await api.get('/journey', {
       headers: {
-        authorization: 'Bearer ' + token,
+        authorization: `Bearer ${token}`,
       },
     });
 
-    setExpenses(expenses.data);
-    setJourney(journey.data);
+    setExpenses(expensesResponse.data);
+    setJourney(journeyResponse.data);
   }
 
   useEffect(() => {
     loadData();
-  }, [])
+  }, []);
 
   return (
     <Container>

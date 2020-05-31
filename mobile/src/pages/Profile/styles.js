@@ -41,8 +41,7 @@ export const LegendItem = styled.View`
   flex-direction: row;
   align-items: center;
   margin-bottom: 7px;
-  background: #fff;
-  elevation: 10;
+  background: #f2f2f2;
   padding: 7px 10px;
   border-radius: 5px;
 `;
@@ -61,7 +60,8 @@ export const LegendItemDesc = styled.Text`
 export const LegendItemValue = styled.Text`
   font-size: 16px;
   font-family: 'Roboto';
-  color: #fff;
+  font-weight: bold;
+  color: #1a1a1a;
   margin-left: auto;
 `;
 export const ChartContainer = styled.View`

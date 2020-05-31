@@ -32,7 +32,7 @@ export const ChartContent = styled.View`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 150px;
+  width: 120px;
   margin: 0 auto;
 `;
 export const LegendContainer = styled.View`
@@ -44,7 +44,7 @@ export const LegendItem = styled.View`
   flex-direction: row;
   align-items: center;
   margin-bottom: 7px;
-  background: #f47a20;
+  background: #f2f2f2;
   padding: 7px 10px;
   border-radius: 5px;
 `;
@@ -58,12 +58,14 @@ export const LegendItemDesc = styled.Text`
   margin-left: 13px;
   font-size: 16px;
   font-family: 'Roboto';
-  color: #fff;
+  font-weight: bold;
+  color: #1a1a1a;
 `;
 export const LegendItemValue = styled.Text`
   font-size: 16px;
   font-family: 'Roboto';
-  color: #fff;
+  font-weight: bold;
+  color: #1a1a1a;
   margin-left: auto;
 `;
 export const TextAproximation = styled.Text`
