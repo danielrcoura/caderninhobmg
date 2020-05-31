@@ -23,7 +23,11 @@ const Help = ({navigation}) => {
   return (
     <Container>
       <StatusBar backgroundColor="#f47a20" />
-      <Header navigator={navigation} />
+      <Header
+        name={name}
+        navigator={navigation}
+        pageTitle="Ajuda"
+      />
       <ScrollContainer>
         <ItensContainer>
           <ItemColapsed>

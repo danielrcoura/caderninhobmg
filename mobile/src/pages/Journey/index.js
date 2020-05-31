@@ -21,7 +21,11 @@ const Journey = ({ navigation }) => {
   return (
     <Container colors={['#f99d1c', '#f47920']}>
       <StatusBar backgroundColor="#f47a20" />
-      <Header navigator={navigation} />
+      <Header
+        name={name}
+        navigator={navigation}
+        pageTitle="Jornada"
+      />
 
       <JourneymanContainer>
         <Image source={journeymanImg} />

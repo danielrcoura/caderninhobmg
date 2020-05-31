@@ -117,7 +117,11 @@ const Profile = ({navigation}) => {
   return (
     <Container>
       <StatusBar backgroundColor="#f47a20" />
-      <Header navigator={navigation} />
+      <Header
+        name={name}
+        navigator={navigation}
+        pageTitle="Perfil"
+      />
       <ListItensContainer>
         <TitleContainer>
           <Title>Olá {name}, esta é a sua central de gastos</Title>
@@ -157,8 +161,8 @@ const Profile = ({navigation}) => {
           </BtnEdit>
         </CostSplit>
         <LastCostList>
-          <ItemTitle>Últimos gastos</ItemTitle>
-          <CostListContent>
+          <ItemTitle key="title" >Últimos gastos</ItemTitle>
+          <CostListContent key="content">
             {expenses.map((item) => (
               <CostListItem key={item.id}>
                 <CostListItemDesc>{item.description}</CostListItemDesc>
