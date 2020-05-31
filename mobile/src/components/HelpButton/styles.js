@@ -3,12 +3,13 @@ import styled from 'styled-components';
 export const Container = styled.View`
   position: absolute;
   z-index: 10;
-  right: 10px;
-
+  left: 20px;
+  bottom: 20px;
   align-items: center;
   justify-content: center;
-  width: 80px;
-  height: 80px;
-  border-radius: 40px;
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
   background-color: #fff;
+  elevation: 5;
 `;
