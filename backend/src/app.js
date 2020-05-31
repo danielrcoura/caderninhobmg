@@ -16,6 +16,7 @@ class App {
   }
 
   middlewares() {
+    require('./database/index')();
     this.server.use(express.json());
   }
 }
