@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useAuth } from '../../hooks/auth';
+import api from '../../services/api';
 import {StatusBar} from 'react-native';
 import {PieChart} from 'react-native-svg-charts';
 import {
@@ -24,7 +26,9 @@ import {
   BtnText,
   ListItensContainer,
 } from './styles';
+
 import Header from '../../components/Header';
+import HelpButton from '../../components/HelpButton'
 
 const dataAPI = {
   user: {
@@ -83,13 +87,31 @@ const dataAPI = {
 };
 
 const Profile = ({navigation}) => {
+  const { name, token } = useAuth();
+
+  const [expenses, setExpenses] = useState([]);
+
+  async function loadData() {
+    const response = await api.get('/expenses', {
+      headers: {
+        authorization: 'Bearer ' + token,
+      },
+    });
+
+    setExpenses(response.data);
+  }
+
+  useEffect(() => {
+    loadData();
+  }, [])
+
   return (
     <Container>
-      <StatusBar backgroundColor="#E3711D" />
+      <StatusBar backgroundColor="#f47a20" />
       <Header navigator={navigation} />
       <ListItensContainer>
         <TitleContainer>
-          <Title>Olá {dataAPI.user.name}, esta é a sua central de gastos</Title>
+          <Title>Olá {name}, esta é a sua central de gastos</Title>
         </TitleContainer>
         <CostSplit>
           <ItemTitle>Divisão de gastos</ItemTitle>
@@ -128,7 +150,7 @@ const Profile = ({navigation}) => {
         <LastCostList>
           <ItemTitle>Últimos gastos</ItemTitle>
           <CostListContent>
-            {dataAPI.lastCosts.map((item) => (
+            {expenses.map((item) => (
               <CostListItem key={item.id}>
                 <CostListItemDesc>{item.description}</CostListItemDesc>
                 <CostListItemValue>{item.value}</CostListItemValue>
@@ -137,6 +159,7 @@ const Profile = ({navigation}) => {
           </CostListContent>
         </LastCostList>
       </ListItensContainer>
+      <HelpButton navigator={navigation} />
     </Container>
   );
 };

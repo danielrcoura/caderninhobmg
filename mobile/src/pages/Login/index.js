@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+
+import { useAuth } from '../../hooks/auth';
+
 import {
   Image,
   StatusBar,
@@ -19,14 +22,30 @@ import {
 import logoImg from '../../assets/logo.png';
 import Input from '../../components/Input';
 
-const Login = () => {
+const Login = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const { signIn } = useAuth();
+
+  const handleLogIn = async () => {
+    //console.log('|' + email + '|', '|' + password + '|')
+
+    try {
+      await signIn({
+        email,
+        password,
+      });
+
+      navigation.push('dashboard');
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <Container colors={['#F99D1C', '#F47920']}>
-      <StatusBar backgroundColor="#F99D1C" barStyle="dark-content" translucent={false} />
-
+      <StatusBar backgroundColor="#F99D1C" />
       <Image source={logoImg} />
 
       <FormView>
@@ -50,7 +69,7 @@ const Login = () => {
         </InputView>
 
         <SignInButtonContainer>
-          <SignInButton>
+          <SignInButton onPress={handleLogIn}>
             <SignInButtonText>ENTRAR</SignInButtonText>
           </SignInButton>
         </SignInButtonContainer>

@@ -17,11 +17,11 @@ import Header from '../../components/Header';
 import Dream from '../../components/Dream';
 import NextButton from '../../components/NextButton'
 
-const Journey = ({ navigator }) => {
+const Journey = ({ navigation }) => {
   return (
-    <Container colors={['#F99D1C', '#F47920']}>
-      <StatusBar backgroundColor="#F47A20" barStyle="dark-content" translucent={false}/>
-      <Header navigator={navigator} />
+    <Container colors={['#f99d1c', '#f47920']}>
+      <StatusBar backgroundColor="#f47a20" />
+      <Header navigator={navigation} />
 
       <JourneymanContainer>
         <Image source={journeymanImg} />

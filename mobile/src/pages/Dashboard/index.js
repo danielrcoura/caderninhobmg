@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useAuth } from '../../hooks/auth';
+import api from '../../services/api';
+import formatValue from '../../utils/formatValue'
 import {StatusBar} from 'react-native';
 import {PieChart} from 'react-native-svg-charts';
 import {
@@ -19,6 +22,7 @@ import {
 } from './styles';
 
 import Header from '../../components/HeaderDashboard';
+import HelpButton from '../../components/HelpButton';
 
 const dataAPI = {
   pieData: [
@@ -62,11 +66,33 @@ const dataAPI = {
     },
   ],
 };
-const Dashboard = ({navigation}) => {
+const Dashboard = ({ navigation }) => {
+  const { name, token } = useAuth();
+
+  const [planExp, setPlanExp] = useState(0);
+  const [income, setIncome] = useState(0);
+  const [expenses, setExpenses] = useState(0);
+
+  async function loadData() {
+    const response = await api.get('/journey', {
+      headers: {
+        authorization: 'Bearer ' + token,
+      },
+    });
+
+    setPlanExp(response.data.plannedExpenses);
+    setIncome(response.data.income);
+    setExpenses(response.data.currentExpenses);
+  }
+
+  useEffect(() => {
+    loadData();
+  });
+
   return (
     <Container>
-      <StatusBar backgroundColor="#E3711D" />
-      <Header name="João Victor" navigator={navigation} />
+      <StatusBar backgroundColor="#f47a20" />
+      <Header name={name} navigator={navigation} />
       <ItemsListArea>
         <ItemContainer>
           <ItemTitle>Seus Gastos</ItemTitle>
@@ -77,7 +103,7 @@ const Dashboard = ({navigation}) => {
               innerRadius="90%"
               padAngle={0}>
               <ChartContent>
-                <ChartText>R$ 1.000,00</ChartText>
+                <ChartText>{formatValue(income)}</ChartText>
               </ChartContent>
             </PieChart>
           </ChartContainer>
@@ -85,17 +111,17 @@ const Dashboard = ({navigation}) => {
             <LegendItem>
               <LegendItemColor color="#54F078" />
               <LegendItemDesc>Meta de gastos:</LegendItemDesc>
-              <LegendItemValue>R$ 700,00</LegendItemValue>
+              <LegendItemValue>{formatValue(planExp)}</LegendItemValue>
             </LegendItem>
             <LegendItem>
               <LegendItemColor color="#705CA7" />
               <LegendItemDesc>Gasto no mês:</LegendItemDesc>
-              <LegendItemValue>R$ 450,00</LegendItemValue>
+              <LegendItemValue>{formatValue(expenses)}</LegendItemValue>
             </LegendItem>
             <LegendItem>
               <LegendItemColor color="#FABA62" />
               <LegendItemDesc>Total disponível</LegendItemDesc>
-              <LegendItemValue>R$ 1000,00</LegendItemValue>
+              <LegendItemValue>{formatValue(income)}</LegendItemValue>
             </LegendItem>
           </LegendContainer>
         </ItemContainer>
@@ -118,6 +144,7 @@ const Dashboard = ({navigation}) => {
           <TextAproximationValue>3 MÊSES</TextAproximationValue>
         </ItemContainer>
       </ItemsListArea>
+      <HelpButton navigator={navigation} />
     </Container>
   );
 };

@@ -9,40 +9,39 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     async function loadStoragedData() {
-      const [token, user] = await AsyncStorage.multiGet(['@CaderninhoBMG:token', '@CaderninhoBMG:user']);
+      const [token, name] = await AsyncStorage.multiGet(['@CaderninhoBMG:token', '@CaderninhoBMG:name']);
 
-      if(token[1] && user[1]) {
-        setData({ token: token[1], user: JSON.parse(user[1]) });
+      if(token[1] && name[1]) {
+        setData({ token: token[1], user: name });
       }
     }
-
     loadStoragedData();
   }, []);
 
   const signIn = useCallback(async ({ email, password }) => {
-    const response = await api.post('/session', {
+    const response = await api.post('/users/auth', {
       email,
       password,
     });
 
-    const { token, user } = response.data;
+    const { token, name } = response.data;
 
     await AsyncStorage.multiSet([
       ['@CaderninhoBMG:token', token],
-      ['@CaderninhoBMG:user', JSON.stringify(user)],
+      ['@CaderninhoBMG:name', name],
     ]);
 
-    setData({ token, user });
+    setData({ token, name });
   }, []);
 
   const signOut = useCallback(async () => {
-    await AsyncStorage.multiRemove(['@CaderninhoBMG:user', '@CaderninhoBMG:token']);
+    await AsyncStorage.multiRemove(['@CaderninhoBMG:name', '@CaderninhoBMG:token']);
 
     setData({});
   }, []);
 
   return (
-    <AuthContext.Provider value={{ token: data.token, user: data.user, signIn, signOut }}>
+    <AuthContext.Provider value={{ token: data.token, name: data.name, signIn, signOut }}>
       {children}
     </AuthContext.Provider>
   );
