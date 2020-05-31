@@ -8,6 +8,8 @@ import Profile from '../pages/Profile';
 import Journey from '../pages/Journey';
 import Dashboard from '../pages/Dashboard';
 import Help from '../pages/Help';
+import UserInfo from '../pages/UserInfo';
+import FinancialInfo from '../pages/FinancialInfo';
 
 const Stack = createStackNavigator();
 
@@ -21,12 +23,14 @@ export default function Routes() {
           gestureEnabled: true,
           ...TransitionPresets.SlideFromRightIOS,
         }}
-        initialRouteName="login">
+        initialRouteName="financial">
         <Stack.Screen name="login" component={Login} />
         <Stack.Screen name="profile" component={Profile} />
         <Stack.Screen name="help" component={Help} />
         <Stack.Screen name="journey" component={Journey} />
         <Stack.Screen name="dashboard" component={Dashboard} />
+        <Stack.Screen name="user" component={UserInfo} />
+        <Stack.Screen name="financial" component={FinancialInfo} />
       </Stack.Navigator>
     </NavigationContainer>
   );
