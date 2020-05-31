@@ -39,7 +39,7 @@ export const SubmitButton = styled.TouchableOpacity`
 export const SubmitButtonText = styled.Text`
   font-family: 'Roboto';
   letter-spacing: 2px;
-  color: #F5801F;
+  color: #f5801f;
   margin: auto;
   font-size: 20px;
 `;
