@@ -20,7 +20,8 @@ export const ItemContainer = styled.View`
   elevation: 5;
 `;
 export const ChartContainer = styled.View`
-  margin: 20px 0;
+  margin: 20px;
+  margin-bottom: 0;
 `;
 export const ChartText = styled.Text`
   font-size: 20px;

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {StatusBar} from 'react-native';
-import {PieChart} from 'react-native-svg-charts';
+import {BarChart, ProgressCircle, Grid} from 'react-native-svg-charts';
 import {useAuth} from '../../hooks/auth';
 import api from '../../services/api';
 import formatValue from '../../utils/formatValue';
@@ -23,57 +23,15 @@ import {
 
 import Header from '../../components/HeaderDashboard';
 import HelpButton from '../../components/HelpButton';
-import formatValue from '../../utils/formatValue';
 
-const dataAPI = {
-  pieData: [
-    {
-      value: 40,
-      key: 1,
-      svg: {
-        fill: '#54F078',
-      },
-    },
-
-    {
-      value: 45,
-      key: 2,
-      svg: {
-        fill: '#705CA7',
-      },
-    },
-    {
-      value: 30,
-      key: 3,
-      svg: {
-        fill: '#FABA62',
-      },
-    },
-  ],
-  progressData: [
-    {
-      value: 65,
-      key: 2,
-      svg: {
-        fill: '#F47A20',
-      },
-    },
-    {
-      value: 35,
-      key: 3,
-      svg: {
-        fill: '#FEF2E9',
-      },
-    },
-  ],
-};
 const Dashboard = ({navigation}) => {
   const {name, token} = useAuth();
 
   const [planExp, setPlanExp] = useState(0);
   const [income, setIncome] = useState(0);
   const [expenses, setExpenses] = useState(0);
-
+  const [chartData, setChartData] = useState([]);
+  const [progressData, setProgressData] = useState(0);
   async function loadData() {
     const response = await api.get('/journey', {
       headers: {
@@ -84,6 +42,27 @@ const Dashboard = ({navigation}) => {
     setPlanExp(response.data.plannedExpenses);
     setIncome(response.data.income);
     setExpenses(response.data.currentExpenses);
+    setProgressData((response.data.dreamSaved * 100) / response.data.dreamCost);
+    setChartData([
+      {
+        value: response.data.income,
+        svg: {
+          fill: '#FABA62',
+        },
+      },
+      {
+        value: response.data.plannedExpenses,
+        svg: {
+          fill: '#54F078',
+        },
+      },
+      {
+        value: response.data.plannedExpenses,
+        svg: {
+          fill: '#705CA7',
+        },
+      },
+    ]);
   }
 
   useEffect(() => {
@@ -93,24 +72,22 @@ const Dashboard = ({navigation}) => {
   return (
     <Container>
       <StatusBar backgroundColor="#f47a20" />
-      <Header
-        name={name}
-        navigator={navigation}
-        pageTitle="Dashboard"
-      />
+      <Header name={name} navigator={navigation} pageTitle="Dashboard" />
       <ItemsListArea>
         <ItemContainer>
           <ItemTitle>Seus Gastos</ItemTitle>
           <ChartContainer>
-            <PieChart
+            <BarChart
               style={{height: 150}}
-              data={dataAPI.pieData}
-              innerRadius="90%"
-              padAngle={0}>
-              <ChartContent>
-                <ChartText>{formatValue(income)}</ChartText>
-              </ChartContent>
-            </PieChart>
+              data={chartData}
+              gridMin={2}
+              svg={{fill: 'rgba(134, 65, 244, 0.8)'}}
+              yAccessor={({item}) => item.value}
+              spacingInner={0.4}
+              spacingOuter={0.4}
+              contentInset={{top: 20, bottom: 20}}>
+              <Grid />
+            </BarChart>
           </ChartContainer>
           <LegendContainer>
             <LegendItem>
@@ -133,15 +110,15 @@ const Dashboard = ({navigation}) => {
         <ItemContainer>
           <ItemTitle>Seu Progresso</ItemTitle>
           <ChartContainer>
-            <PieChart
+            <ProgressCircle
               style={{height: 150}}
-              data={dataAPI.progressData}
-              innerRadius="90%"
-              padAngle={0}>
+              progressColor="#F47A20"
+              progress={progressData / 100}
+              innerRadius="90%">
               <ChartContent>
-                <ChartText>65% Concluído</ChartText>
+                <ChartText>{progressData}% Concluído</ChartText>
               </ChartContent>
-            </PieChart>
+            </ProgressCircle>
           </ChartContainer>
           <TextAproximation>
             Viagem para Porto Seguro estará disponível em aproximadamente:
