@@ -9,7 +9,7 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     async function loadStoragedData() {
-      const [token, user] = await AsyncStorage.multiGet(['@Taba:token', '@Taba:user']);
+      const [token, user] = await AsyncStorage.multiGet(['@CaderninhoBMG:token', '@CaderninhoBMG:user']);
 
       if(token[1] && user[1]) {
         setData({ token: token[1], user: JSON.parse(user[1]) });
@@ -28,15 +28,15 @@ export const AuthProvider = ({ children }) => {
     const { token, user } = response.data;
 
     await AsyncStorage.multiSet([
-      ['@Taba:token', token],
-      ['@Taba:user', JSON.stringify(user)],
+      ['@CaderninhoBMG:token', token],
+      ['@CaderninhoBMG:user', JSON.stringify(user)],
     ]);
 
     setData({ token, user });
   }, []);
 
   const signOut = useCallback(async () => {
-    await AsyncStorage.multiRemove(['@Taba:user', '@Taba:token']);
+    await AsyncStorage.multiRemove(['@CaderninhoBMG:user', '@CaderninhoBMG:token']);
 
     setData({});
   }, []);
