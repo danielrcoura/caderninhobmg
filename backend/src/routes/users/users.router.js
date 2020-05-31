@@ -10,4 +10,4 @@ router.post('/', usersController.createUser);
 
 router.post('/auth', usersController.authenticate);
 
-export default router;
+module.exports = router;

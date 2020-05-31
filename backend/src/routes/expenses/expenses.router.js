@@ -6,4 +6,4 @@ const router = express.Router();
 
 router.post('/', usersMiddlewares.authorize, expensesController.createExpense);
 
-export default router;
+module.exports = router;

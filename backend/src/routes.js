@@ -1,7 +1,7 @@
-import { Router } from 'express';
-import usersRouter from './routes/users/users.router';
-import expensesRouter from './routes/expenses/expenses.router';
-import journeyRouter from './routes/journey/journey.router';
+const { Router } = require('express');
+const usersRouter = require('./routes/users/users.router');
+const expensesRouter = require('./routes/expenses/expenses.router');
+const journeyRouter = require('./routes/journey/journey.router');
 
 const routes = Router();
 
@@ -9,4 +9,4 @@ routes.use('/users', usersRouter);
 routes.use('/expenses', expensesRouter);
 routes.use('/journey', journeyRouter);
 
-export default routes;
+module.exports = routes;
