@@ -87,7 +87,7 @@ const dataAPI = {
 const Profile = ({navigation}) => {
   return (
     <Container>
-      <StatusBar backgroundColor="#E3711D" />
+      <StatusBar backgroundColor="#f47a20" />
       <Header navigator={navigation} />
       <ListItensContainer>
         <TitleContainer>
@@ -139,6 +139,7 @@ const Profile = ({navigation}) => {
           </CostListContent>
         </LastCostList>
       </ListItensContainer>
+      <HelpButton navigator={navigation} />
     </Container>
   );
 };
