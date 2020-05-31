@@ -13,7 +13,7 @@ export const TitleContainer = styled.View`
   margin: 20px 30px;
 `;
 export const CostSplit = styled.View`
-  margin: 10px 30px;
+  margin: 10px 12px;
   display: flex;
   flex-direction: column;
   background: #fff;
@@ -75,7 +75,7 @@ export const ChartContent = styled.View`
   margin: 0 auto;
 `;
 export const LastCostList = styled.View`
-  margin: 10px 30px;
+  margin: 10px 12px;
   display: flex;
   flex-direction: column;
   background: #fff;

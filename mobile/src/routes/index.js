@@ -5,6 +5,7 @@ import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 
 import Login from '../pages/Login';
 import Profile from '../pages/Profile';
+import Dashboard from '../pages/Dashboard';
 
 const Stack = createStackNavigator();
 
@@ -18,9 +19,10 @@ export default function Routes() {
           gestureEnabled: true,
           ...TransitionPresets.SlideFromRightIOS,
         }}
-        initialRouteName="profile">
+        initialRouteName="dashboard">
         <Stack.Screen name="login" component={Login} />
         <Stack.Screen name="profile" component={Profile} />
+        <Stack.Screen name="dashboard" component={Dashboard} />
       </Stack.Navigator>
     </NavigationContainer>
   );
