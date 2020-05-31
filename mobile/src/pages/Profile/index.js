@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../hooks/auth';
+import api from '../../services/api';
 import {StatusBar} from 'react-native';
 import {PieChart} from 'react-native-svg-charts';
 import {
@@ -86,7 +87,23 @@ const dataAPI = {
 };
 
 const Profile = ({navigation}) => {
-  const { name } = useAuth();
+  const { name, token } = useAuth();
+
+  const [expenses, setExpenses] = useState([]);
+
+  async function loadData() {
+    const response = await api.get('/expenses', {
+      headers: {
+        authorization: 'Bearer ' + token,
+      },
+    });
+
+    setExpenses(response.data);
+  }
+
+  useEffect(() => {
+    loadData();
+  }, [])
 
   return (
     <Container>
@@ -133,7 +150,7 @@ const Profile = ({navigation}) => {
         <LastCostList>
           <ItemTitle>Últimos gastos</ItemTitle>
           <CostListContent>
-            {dataAPI.lastCosts.map((item) => (
+            {expenses.map((item) => (
               <CostListItem key={item.id}>
                 <CostListItemDesc>{item.description}</CostListItemDesc>
                 <CostListItemValue>{item.value}</CostListItemValue>
