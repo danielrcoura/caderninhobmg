@@ -5,7 +5,7 @@ export const Container = styled.View`
   margin: 0 6px;
 `;
 
-export const DreamBackground = styled.View`
+export const DreamBackground = styled.TouchableOpacity`
   align-items: center;
   justify-content: center;
   width: 80px;
