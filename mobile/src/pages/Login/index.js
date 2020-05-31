@@ -32,33 +32,35 @@ const Login = () => {
       <Image source={logoImg} />
 
       <FormView>
-      <InputView>
-        <InputLabel>EMAIL</InputLabel>
-        <Input
-          icon="mail"
-          placeholder="Insira seu email"
-          onChangeText={(text) => setEmail(text.trim())}
-        />
-      </InputView>
+        <InputView>
+          <InputLabel>EMAIL</InputLabel>
+          <Input
+            icon="mail"
+            placeholder="Insira seu email"
+            onChangeText={(text) => setEmail(text.trim())}
+          />
+        </InputView>
 
-      <InputView>
-        <InputLabel>SENHA</InputLabel>
-        <Input
-          icon="lock"
-          secureTextEntry
-          placeholder="Insira seu email"
-          onChangeText={(text) => setPassword(text.trim())}
-        />
-      </InputView>
+        <InputView>
+          <InputLabel>SENHA</InputLabel>
+          <Input
+            icon="lock"
+            secureTextEntry
+            placeholder="Insira sua senha"
+            onChangeText={(text) => setPassword(text.trim())}
+          />
+        </InputView>
 
-      <SignInButtonContainer>
-        <SignInButton>
-          <SignInButtonText>ENTRAR</SignInButtonText>
-        </SignInButton>
-      </SignInButtonContainer>
+        <SignInButtonContainer>
+          <SignInButton>
+            <SignInButtonText>ENTRAR</SignInButtonText>
+          </SignInButton>
+        </SignInButtonContainer>
       </FormView>
 
-      <SingUpButton><SingUpButtonText>Cadastre-se</SingUpButtonText></SingUpButton>
+      <SingUpButton>
+        <SingUpButtonText>Cadastre-se</SingUpButtonText>
+      </SingUpButton>
     </Container>
   );
 };
