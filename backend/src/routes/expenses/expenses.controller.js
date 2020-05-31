@@ -14,3 +14,8 @@ exports.createExpense = async (req, res) => {
   await expense.save();
   res.send(expense);
 };
+
+exports.getExpenses = async (req, res) => {
+  const expenses = await Expense.find({ userId: req.user.id });
+  res.send(expenses);
+};

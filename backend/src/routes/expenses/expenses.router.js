@@ -6,4 +6,6 @@ const router = express.Router();
 
 router.post('/', usersMiddlewares.authorize, expensesController.createExpense);
 
+router.get('/', usersMiddlewares.authorize, expensesController.getExpenses);
+
 module.exports = router;
