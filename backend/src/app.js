@@ -1,8 +1,7 @@
-import 'dotenv/config';
+require('dotenv/config');
 
-import express from 'express';
-
-import routes from './routes';
+const express = require('express');
+const routes = require('./routes');
 
 class App {
   constructor() {
@@ -16,8 +15,9 @@ class App {
   }
 
   middlewares() {
+    require('./database/index')();
     this.server.use(express.json());
   }
 }
 
-export default new App();
+module.exports = new App();

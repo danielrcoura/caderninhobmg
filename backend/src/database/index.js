@@ -1,22 +1,18 @@
-import Sequelize from 'sequelize';
+const mongoose = require('mongoose');
 
-import databaseConfig from '../config/database';
+module.exports = () => {
+  mongoose
+    .connect(process.env.DATABASE_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false,
+    })
+    .then(() => {
+      console.log('Connected on database caderninho_bmg...');
+    })
+    .catch((err) => {
+      console.log('Error connecting to the database' + err);
+    });
 
-const models = [];
-
-class Database {
-  constructor() {
-    this.init();
-  }
-
-  init() {
-    this.connection = new Sequelize(databaseConfig);
-
-    models.map((model) => model.init(this.connection));
-    models.map(
-      (model) => model.associate && model.associate(this.connection.models)
-    );
-  }
-}
-
-export default new Database();
+  mongoose.set('useCreateIndex', true);
+};

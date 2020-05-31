@@ -35,7 +35,7 @@ export const TextWrapper = styled.View`
 `;
 
 export const DreamsContainer = styled.View`
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 `;
 
 export const DreamRow = styled.View`
