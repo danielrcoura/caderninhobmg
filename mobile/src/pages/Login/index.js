@@ -25,7 +25,7 @@ const Login = () => {
 
   return (
     <Container colors={['#F99D1C', '#F47920']}>
-      <StatusBar backgroundColor="#F99D1C" barStyle="dark-content" translucent={false} />
+      <StatusBar backgroundColor="#F99D1C" />
 
       <Image source={logoImg} />
 
