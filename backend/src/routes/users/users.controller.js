@@ -3,8 +3,8 @@ const _ = require('lodash');
 
 const User = require('./user.model');
 
-exports.findUserById = async (req, res) => {
-  const user = await User.findById(req.params.user_id);
+exports.getUser = async (req, res) => {
+  const user = await User.findById(req.user.id);
 
   if (!user) {
     res.status(404).send('Usuário não encontrado');

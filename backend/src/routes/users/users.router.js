@@ -4,11 +4,7 @@ const usersMiddlewares = require('./users.middlewares');
 
 const router = express.Router();
 
-router.get(
-  '/:user_id',
-  usersMiddlewares.authorize,
-  usersController.findUserById
-);
+router.get('/', usersMiddlewares.authorize, usersController.getUser);
 
 router.post('/', usersController.createUser);
 
