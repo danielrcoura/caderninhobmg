@@ -1,11 +1,14 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/AntDesign';
-import {Container} from './styles';
+import {Container, BackButton, BackText} from './styles';
 
-const Header = () => {
+const Header = ({navigator}) => {
   return (
     <Container>
-      <Icon name="arrowleft" />
+      <BackButton>
+        <Icon name="arrowleft" color="#fff" size={25} />
+        <BackText>Voltar</BackText>
+      </BackButton>
     </Container>
   );
 };
