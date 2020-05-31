@@ -1,11 +1,10 @@
 <img alt="Screenshot" title="Screenshot" src="./docs/images/Logo.png" width="300px" />
 
 # Caderninho BMG
-Projeto desenvolvido durante o Hackathon BMG no período de 30/05/2020 a 31/05/2020
+Projeto desenvolvido durante o Hackathon BMG no período de 29/05/2020 a 31/05/2020
 
 ### Tecnologias
 - React Native
-- GraphQL (API da BMG)
 - Node
 - MongoDB
   
