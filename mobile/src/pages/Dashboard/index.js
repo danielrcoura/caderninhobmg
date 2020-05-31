@@ -3,6 +3,7 @@ import {StatusBar} from 'react-native';
 import {PieChart} from 'react-native-svg-charts';
 import {useAuth} from '../../hooks/auth';
 import api from '../../services/api';
+import formatValue from '../../utils/formatValue';
 import {
   Container,
   ItemContainer,
@@ -92,7 +93,11 @@ const Dashboard = ({navigation}) => {
   return (
     <Container>
       <StatusBar backgroundColor="#f47a20" />
-      <Header name={name} navigator={navigation} />
+      <Header
+        name={name}
+        navigator={navigation}
+        pageTitle="Dashboard"
+      />
       <ItemsListArea>
         <ItemContainer>
           <ItemTitle>Seus Gastos</ItemTitle>
