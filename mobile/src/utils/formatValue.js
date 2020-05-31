@@ -1,9 +1,5 @@
-import Intl from 'react-native-intl';
-
-const formatValue = async (value) => {
-  return await Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(
-    value,
-  );
+const formatValue = (value) => {
+  return 'R$ ' + value + ',00';
 }
 
 export default formatValue;
