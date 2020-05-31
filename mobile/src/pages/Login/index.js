@@ -1,9 +1,7 @@
-import React, {useState } from 'react';
+import React, { useState } from 'react';
 import {
   Image,
   StatusBar,
-  View,
-  Text
 } from 'react-native';
 
 import {
