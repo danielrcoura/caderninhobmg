@@ -1,4 +1,5 @@
 import React from 'react';
+import { useAuth } from '../../hooks/auth';
 import {StatusBar} from 'react-native';
 import {PieChart} from 'react-native-svg-charts';
 import {
@@ -85,13 +86,15 @@ const dataAPI = {
 };
 
 const Profile = ({navigation}) => {
+  const { name } = useAuth();
+
   return (
     <Container>
       <StatusBar backgroundColor="#f47a20" />
       <Header navigator={navigation} />
       <ListItensContainer>
         <TitleContainer>
-          <Title>Olá {dataAPI.user.name}, esta é a sua central de gastos</Title>
+          <Title>Olá {name}, esta é a sua central de gastos</Title>
         </TitleContainer>
         <CostSplit>
           <ItemTitle>Divisão de gastos</ItemTitle>

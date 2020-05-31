@@ -1,4 +1,5 @@
 import React from 'react';
+import { useAuth } from '../../hooks/auth';
 import {StatusBar} from 'react-native';
 import {PieChart} from 'react-native-svg-charts';
 import {
@@ -64,10 +65,12 @@ const dataAPI = {
   ],
 };
 const Dashboard = ({ navigation }) => {
+  const { name } = useAuth();
+
   return (
     <Container>
       <StatusBar backgroundColor="#f47a20" />
-      <Header name="João Victor" navigator={navigation} />
+      <Header name={name} navigator={navigation} />
       <ItemsListArea>
         <ItemContainer>
           <ItemTitle>Seus Gastos</ItemTitle>
