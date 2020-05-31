@@ -62,11 +62,11 @@ const dataAPI = {
     },
   ],
 };
-const Dashboard = () => {
+const Dashboard = ({navigation}) => {
   return (
     <Container>
       <StatusBar backgroundColor="#E3711D" />
-      <Header name="João Victor" />
+      <Header name="João Victor" navigator={navigation} />
       <ItemsListArea>
         <ItemContainer>
           <ItemTitle>Seus Gastos</ItemTitle>

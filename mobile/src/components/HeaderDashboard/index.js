@@ -12,13 +12,13 @@ import {
 } from './styles';
 import logoBMG from '../../assets/images/bmgLogo.png';
 
-const HeaderDashboard = ({name}) => {
+const HeaderDashboard = ({name, navigator}) => {
   return (
     <Container>
       <Content>
         <IconBMG source={logoBMG} />
         <HelloText>Olá {name}</HelloText>
-        <ProfileBtn>
+        <ProfileBtn onPress={() => navigator.push('profile')}>
           <Icon name="user" size={30} color="#fff" />
           <BtnText>Perfil</BtnText>
         </ProfileBtn>

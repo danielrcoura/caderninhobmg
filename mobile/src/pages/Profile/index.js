@@ -1,5 +1,5 @@
 import React from 'react';
-import {StatusBar, ScrollView} from 'react-native';
+import {StatusBar} from 'react-native';
 import {PieChart} from 'react-native-svg-charts';
 import {
   Container,
@@ -22,6 +22,7 @@ import {
   CostListContent,
   BtnEdit,
   BtnText,
+  ListItensContainer,
 } from './styles';
 import Header from '../../components/Header';
 
@@ -81,12 +82,12 @@ const dataAPI = {
   ],
 };
 
-const Profile = ({navigator}) => {
+const Profile = ({navigation}) => {
   return (
-    <ScrollView>
-      <Container>
-        <StatusBar backgroundColor="#E3711D" />
-        <Header navigator={navigator} />
+    <Container>
+      <StatusBar backgroundColor="#E3711D" />
+      <Header navigator={navigation} />
+      <ListItensContainer>
         <TitleContainer>
           <Title>Olá {dataAPI.user.name}, esta é a sua central de gastos</Title>
         </TitleContainer>
@@ -135,8 +136,8 @@ const Profile = ({navigator}) => {
             ))}
           </CostListContent>
         </LastCostList>
-      </Container>
-    </ScrollView>
+      </ListItensContainer>
+    </Container>
   );
 };
 
