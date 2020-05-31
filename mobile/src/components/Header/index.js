@@ -3,10 +3,10 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import {Container, BackButton, BackText, LogoContainer, Logo} from './styles';
 import logo from '../../assets/images/logoHeaderWhite.png';
 
-const Header = ({navigator}) => {
+const Header = ({ navigator }) => {
   return (
     <Container>
-      <BackButton onPress={() => navigator.pop()}>
+      <BackButton onPress={() => navigator.goBack()}>
         <Icon name="arrowleft" color="#fff" size={25} />
         <BackText>Voltar</BackText>
       </BackButton>
