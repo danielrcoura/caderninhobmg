@@ -25,7 +25,6 @@ const Journey = ({ navigation }) => {
 
       <JourneymanContainer>
         <Image source={journeymanImg} />
-
         <JourneymanText>Nos conte um pouco sobre a sua jornada</JourneymanText>
       </JourneymanContainer>
 
@@ -33,19 +32,46 @@ const Journey = ({ navigation }) => {
 
       <DreamsContainer>
         <DreamRow>
-          <Dream name="Veículo" icon="car" />
-          <Dream name="Casa" icon="home" />
-          <Dream name="Viagem" icon="plane" />
+          <Dream
+            name="Veículo"
+            icon="car"
+            dreamDescription="Carro Novo"
+          />
+          <Dream
+            name="Casa"
+            icon="home"
+            iconSize={50}
+            dreamDescription="Um Novo Lar"
+          />
+          <Dream
+            name="Viagem"
+            icon="plane"
+            iconSize={50}
+            dreamDescription="Viagem"
+          />
         </DreamRow>
 
         <DreamRow>
-          <Dream name="Compras" icon="shopping-cart" />
-          <Dream name="Computador" icon="laptop" />
-          <Dream name="Celular" icon="mobile-phone" />
+          <Dream
+            name="Compras"
+            icon="shopping-cart"
+            iconSize={48}
+            dreamDescription="Fazer Compras"
+          />
+          <Dream
+            name="Computador"
+            icon="laptop"
+            iconSize={50}
+            dreamDescription="Computador Novo"
+          />
+          <Dream
+            name="Celular"
+            icon="mobile-phone"
+            iconSize={65}
+            dreamDescription="Celular Novo"
+          />
         </DreamRow>
       </DreamsContainer>
-
-      <NextButton />
     </Container>
   );
 };
