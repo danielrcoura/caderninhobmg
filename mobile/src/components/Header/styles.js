@@ -21,13 +21,15 @@ export const BackText = styled.Text`
   font-family: 'Roboto';
   color: #fff;
 `;
-export const LogoContainer = styled.View`
+export const TitleContainer = styled.View`
   margin-right: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
-export const Logo = styled.Image`
-  width: 177px;
-  height: 61px;
+export const PageTitle = styled.Text`
+  font-family: 'Roboto';
+  color: #fff;
+  font-size: 36px;
+  font-weight: 700;
 `;
