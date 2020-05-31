@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../hooks/auth';
 import api from '../../services/api';
+import formatValue from '../../utils/formatValue';
 import {StatusBar} from 'react-native';
 import {PieChart} from 'react-native-svg-charts';
 import {
@@ -90,15 +91,23 @@ const Profile = ({navigation}) => {
   const { name, token } = useAuth();
 
   const [expenses, setExpenses] = useState([]);
+  const [journey, setJourney] = useState({});
 
   async function loadData() {
-    const response = await api.get('/expenses', {
+    const expenses = await api.get('/expenses', {
       headers: {
         authorization: 'Bearer ' + token,
       },
     });
 
-    setExpenses(response.data);
+    const journey = await api.get('/journey', {
+      headers: {
+        authorization: 'Bearer ' + token,
+      },
+    });
+
+    setExpenses(expenses.data);
+    setJourney(journey.data);
   }
 
   useEffect(() => {
@@ -122,7 +131,7 @@ const Profile = ({navigation}) => {
               innerRadius="90%"
               padAngle={0}>
               <ChartContent>
-                <ChartText>Viagem para Porto Seguro</ChartText>
+                <ChartText>{journey.dreamDescription}</ChartText>
               </ChartContent>
             </PieChart>
           </ChartContainer>
@@ -153,7 +162,7 @@ const Profile = ({navigation}) => {
             {expenses.map((item) => (
               <CostListItem key={item.id}>
                 <CostListItemDesc>{item.description}</CostListItemDesc>
-                <CostListItemValue>{item.value}</CostListItemValue>
+                <CostListItemValue>{formatValue(item.value)}</CostListItemValue>
               </CostListItem>
             ))}
           </CostListContent>
