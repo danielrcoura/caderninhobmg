@@ -7,8 +7,9 @@ export const ItemsListArea = styled.ScrollView`
 export const ItemTitle = styled.Text`
   color: #f47a20;
   font-family: 'Roboto';
-  font-size: 18px;
+  font-size: 22px;
   text-align: center;
+  font-weight: bold;
   margin-top: 20px;
 `;
 export const ItemContainer = styled.View`

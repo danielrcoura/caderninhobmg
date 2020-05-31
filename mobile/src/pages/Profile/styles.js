@@ -28,6 +28,7 @@ export const CostSplit = styled.View`
 export const ItemTitle = styled.Text`
   color: #f47a20;
   font-family: 'Roboto';
+  font-weight: bold;
   font-size: 18px;
   text-align: center;
   margin-top: 20px;
