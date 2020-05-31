@@ -5,10 +5,9 @@ Projeto desenvolvido durante o Hackathon BMG no período de 30/05/2020 a 31/05/2
 
 ### Tecnologias
 - React Native
-- GraphQL
+- GraphQL (API da BMG)
 - Node
-- Docker
-- PostgresSQL
+- MongoDB
   
 ### Screenshoots
 
