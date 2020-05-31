@@ -1,8 +1,14 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/AntDesign';
-import {Container, BackButton, BackText, TitleContainer, PageTitle} from './styles';
+import {
+  Container,
+  BackButton,
+  BackText,
+  TitleContainer,
+  PageTitle,
+} from './styles';
 
-const Header = ({ navigator, pageTitle }) => {
+const Header = ({navigator, pageTitle}) => {
   return (
     <Container>
       <BackButton onPress={() => navigator.goBack()}>

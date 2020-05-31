@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-import { StatusBar } from 'react-native'
+import {StatusBar} from 'react-native';
 
 import {
   Container,
@@ -9,17 +9,18 @@ import {
   InputLabel,
   SubmitButton,
   SubmitButtonContainer,
-  SubmitButtonText
-} from './styles'
+  SubmitButtonText,
+} from './styles';
 import Input from '../../components/Input';
 
-const FinancialInfo = () => {
-  function handleSubmit() {
+import Header from '../../components/Header';
 
-  }
+const FinancialInfo = ({navigation}) => {
+  function handleSubmit() {}
 
   return (
     <Container colors={['#F99D1C', '#F47920']}>
+      <Header pageTitle="JORNADA" navigator={navigation} />
       <StatusBar backgroundColor="#F99D1C" />
       <FormView>
         <InputView>
