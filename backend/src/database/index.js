@@ -5,6 +5,7 @@ module.exports = () => {
     .connect(process.env.DATABASE_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
+      useFindAndModify: false,
     })
     .then(() => {
       console.log('Connected on database caderninho_bmg...');
