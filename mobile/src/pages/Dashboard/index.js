@@ -19,6 +19,7 @@ import {
 } from './styles';
 
 import Header from '../../components/HeaderDashboard';
+import HelpButton from '../../components/HelpButton';
 
 const dataAPI = {
   pieData: [
@@ -62,10 +63,10 @@ const dataAPI = {
     },
   ],
 };
-const Dashboard = ({navigation}) => {
+const Dashboard = ({ navigation }) => {
   return (
     <Container>
-      <StatusBar backgroundColor="#E3711D" />
+      <StatusBar backgroundColor="#f47a20" />
       <Header name="João Victor" navigator={navigation} />
       <ItemsListArea>
         <ItemContainer>
@@ -118,6 +119,7 @@ const Dashboard = ({navigation}) => {
           <TextAproximationValue>3 MÊSES</TextAproximationValue>
         </ItemContainer>
       </ItemsListArea>
+      <HelpButton navigator={navigation} />
     </Container>
   );
 };
