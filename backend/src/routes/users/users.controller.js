@@ -1,3 +1,4 @@
+const jwt = require('jsonwebtoken');
 const _ = require('lodash');
 
 const User = require('./user.model');
@@ -39,8 +40,13 @@ exports.authenticate = async (req, res) => {
     res.status(401).json('Senha incorreta.');
   }
 
+  const payload = { id: user.id };
+  const token = jwt.sign(payload, process.env.APP_SECRET, {
+    expiresIn: '7d',
+  });
+
   return res.send({
     ..._.omit(user.toJSON(), ['password']),
-    token: user.generateToken(),
+    token,
   });
 };

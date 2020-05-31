@@ -1,8 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const api = module.exports;
-
-api.authorize = async (req, res, next) => {
+exports.authorize = async (req, res, next) => {
   let token = req.header('Authorization');
 
   if (!token) return res.status(401).send('Access denied. No token provided.');

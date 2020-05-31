@@ -19,15 +19,6 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-userSchema.methods.generateToken = () => {
-  const payload = { id: this._id };
-  const token = jwt.sign(payload, process.env.APP_SECRET, {
-    expiresIn: '7d',
-  });
-
-  return token;
-};
-
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;
