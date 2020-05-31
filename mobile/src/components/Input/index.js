@@ -7,11 +7,11 @@ const Input = ({ icon, ...props }) => {
   return (
     <Container>
       <TextInput
-        placeholderTextColor="#ffffff"
+        placeholderTextColor="#979797"
         {...props}
       />
 
-      <Icon name={icon} size={20} color="#ffffff" />
+      <Icon name={icon} size={26} color="#979797" />
     </Container>
   )
 };
