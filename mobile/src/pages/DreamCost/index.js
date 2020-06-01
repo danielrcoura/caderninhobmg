@@ -38,7 +38,7 @@ const DreamCost = ({ route, navigation }) => {
 
     console.log(response.data)
 
-    navigation.navigate('dashboard');
+    navigation.push('dashboard');
   }
 
   return (
