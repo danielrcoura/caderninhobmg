@@ -1,5 +1,5 @@
-import React from 'react';
-
+import React, { useState } from 'react';
+import api from '../../services/api';
 import { StatusBar } from 'react-native'
 
 import {
@@ -13,9 +13,23 @@ import {
 } from './styles'
 import Input from '../../components/Input';
 
-const UserInfo = () => {
-  function handleSubmit() {
+const UserInfo = ({ navigation }) => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
+  async function handleSubmit() {
+    try{
+      await api.post('/users', {
+        name,
+        email,
+        password
+      })
+      navigation.navigate('login')
+    }
+    catch(err) {
+      console.log(err)
+    }
   }
 
   return (
@@ -27,7 +41,7 @@ const UserInfo = () => {
           <Input
             icon="mail"
             placeholder="Digite seu nome"
-            onChangeText={(text) => setEmail(text.trim())}
+            onChangeText={(text) => setName(text.trim())}
           />
         </InputView>
 
@@ -52,7 +66,7 @@ const UserInfo = () => {
 
         <SubmitButtonContainer>
           <SubmitButton onPress={handleSubmit}>
-            <SubmitButtonText>SUBMETER</SubmitButtonText>
+            <SubmitButtonText>CADASTRAR-SE</SubmitButtonText>
           </SubmitButton>
         </SubmitButtonContainer>
       </FormView>

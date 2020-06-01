@@ -1,5 +1,7 @@
 import React from 'react';
-import { StatusBar, Image, View, Text } from 'react-native';
+import { StatusBar, Image } from 'react-native';
+
+import api from '../../services/api'
 
 import {
   Container,
@@ -15,14 +17,16 @@ import journeymanImg from '../../assets/images/career.png';
 
 import Header from '../../components/Header';
 import Dream from '../../components/Dream';
-import NextButton from '../../components/NextButton'
 
-const Journey = ({ navigation }) => {
+const Journey = ({ route, navigation }) => {
+  async function handleDreamSelection(dreamDescription) {
+    navigation.navigate('cost', { dreamDescription, ...route.params});
+  }
+
   return (
     <Container colors={['#f99d1c', '#f47920']}>
-      <StatusBar backgroundColor="#f47a20" />
+      <StatusBar backgroundColor="#f47920" />
       <Header
-        name={name}
         navigator={navigation}
         pageTitle="Jornada"
       />
@@ -39,19 +43,19 @@ const Journey = ({ navigation }) => {
           <Dream
             name="Veículo"
             icon="car"
-            dreamDescription="Carro Novo"
+            onPress={() => handleDreamSelection("Carro Novo")}
           />
           <Dream
             name="Casa"
             icon="home"
             iconSize={50}
-            dreamDescription="Um Novo Lar"
+            onPress={() => handleDreamSelection("Um Novo Lar")}
           />
           <Dream
             name="Viagem"
             icon="plane"
             iconSize={50}
-            dreamDescription="Viagem"
+            onPress={() => handleDreamSelection("Viagem")}
           />
         </DreamRow>
 
@@ -60,19 +64,19 @@ const Journey = ({ navigation }) => {
             name="Compras"
             icon="shopping-cart"
             iconSize={48}
-            dreamDescription="Fazer Compras"
+            onPress={() => handleDreamSelection("Fazer Compras")}
           />
           <Dream
             name="Computador"
             icon="laptop"
             iconSize={50}
-            dreamDescription="Computador Novo"
+            onPress={() => handleDreamSelection("Computador Novo")}
           />
           <Dream
             name="Celular"
             icon="mobile-phone"
             iconSize={65}
-            dreamDescription="Celular Novo"
+            onPress={() => handleDreamSelection("Celular Novo")}
           />
         </DreamRow>
       </DreamsContainer>

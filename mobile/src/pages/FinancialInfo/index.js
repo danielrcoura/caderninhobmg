@@ -15,12 +15,12 @@ import Input from '../../components/Input';
 
 import Header from '../../components/Header';
 
-const FinancialInfo = ({navigation}) => {
+const FinancialInfo = ({ navigation }) => {
   const [ammountIncome, setAmmountIncome] = useState('');
   const [ammountSave, setAmmountSave] = useState('');
 
   function handleSubmit() {
-    navigation.push('journeyplans', {ammountIncome, ammountSave});
+    navigation.push('journey', { ammountIncome, ammountSave });
   }
 
   return (
@@ -42,7 +42,6 @@ const FinancialInfo = ({navigation}) => {
             <InputLabel>E quanto pretende poupar?</InputLabel>
             <Input
               icon="archive"
-              secureTextEntry
               placeholder="Insira um valor"
               onChangeText={(text) => setAmmountSave(text.trim())}
             />

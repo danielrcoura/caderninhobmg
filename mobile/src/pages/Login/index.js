@@ -29,8 +29,6 @@ const Login = ({ navigation }) => {
   const { signIn } = useAuth();
 
   const handleLogIn = async () => {
-    //console.log('|' + email + '|', '|' + password + '|')
-
     try {
       await signIn({
         email,
@@ -75,7 +73,7 @@ const Login = ({ navigation }) => {
         </SignInButtonContainer>
       </FormView>
 
-      <SingUpButton>
+      <SingUpButton onPress={() => navigation.navigate('user')}>
         <SingUpButtonText>Cadastre-se</SingUpButtonText>
       </SingUpButton>
     </Container>

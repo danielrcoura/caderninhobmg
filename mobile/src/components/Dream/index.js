@@ -3,18 +3,11 @@ import api from '../../services/api';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Container, DreamBackground, DreamText } from './styles';
 
-const Dream = ({ navigation, icon, name, dreamDescription, iconSize = 40 }) => {
-  async function handleDreamSelection() {
-    // await api.post('/journey', {
-
-    // });
-    // navigation.navigate('dashboard');
-  }
-
+const Dream = ({ onPress, icon, name, dreamDescription, iconSize = 40 }) => {
   return (
     <Container>
       <DreamText>{name}</DreamText>
-      <DreamBackground onPress={handleDreamSelection}>
+      <DreamBackground onPress={onPress}>
         <Icon name={icon} size={iconSize} color="#979797" />
       </DreamBackground>
     </Container>

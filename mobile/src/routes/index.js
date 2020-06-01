@@ -10,6 +10,7 @@ import Dashboard from '../pages/Dashboard';
 import Help from '../pages/Help';
 import UserInfo from '../pages/UserInfo';
 import FinancialInfo from '../pages/FinancialInfo';
+import DreamCost from '../pages/DreamCost';
 
 const Stack = createStackNavigator();
 
@@ -23,7 +24,7 @@ export default function Routes() {
           gestureEnabled: true,
           ...TransitionPresets.SlideFromRightIOS,
         }}
-        initialRouteName="financial">
+        initialRouteName="login">
         <Stack.Screen name="login" component={Login} />
         <Stack.Screen name="profile" component={Profile} />
         <Stack.Screen name="help" component={Help} />
@@ -31,6 +32,7 @@ export default function Routes() {
         <Stack.Screen name="dashboard" component={Dashboard} />
         <Stack.Screen name="user" component={UserInfo} />
         <Stack.Screen name="financial" component={FinancialInfo} />
+        <Stack.Screen name="cost" component={DreamCost} />
       </Stack.Navigator>
     </NavigationContainer>
   );

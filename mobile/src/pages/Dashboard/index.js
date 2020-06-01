@@ -32,12 +32,17 @@ const Dashboard = ({navigation}) => {
   const [expenses, setExpenses] = useState(0);
   const [chartData, setChartData] = useState([]);
   const [progressData, setProgressData] = useState(0);
+
   async function loadData() {
     const response = await api.get('/journey', {
       headers: {
         authorization: `Bearer ${token}`,
       },
     });
+
+    if(!response.data) {
+      navigation.navigate('financial');
+    }
 
     setPlanExp(response.data.plannedExpenses);
     setIncome(response.data.income);
@@ -67,7 +72,7 @@ const Dashboard = ({navigation}) => {
 
   useEffect(() => {
     loadData();
-  });
+  }, []);
 
   return (
     <Container>
